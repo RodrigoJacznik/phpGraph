@@ -19,6 +19,17 @@ class Node {
     $this->neighbors[$node->getName()] = $node;
   }
 
+  /**
+   * Delete the relation of this node with the node with name *$name*.
+   * 
+   * @param $name of the node to delete.
+   */
+  public function deleteRelation($name) {
+    if (array_key_exists($name, $this->neighbors)) {
+      unset($this->neighbors[$name]);
+    }
+  }
+
   /*
    * Return all the neighbors of this node.
    *

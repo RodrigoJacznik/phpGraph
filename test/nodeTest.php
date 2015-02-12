@@ -27,6 +27,16 @@ class NodoTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(1, count($node1->getNeighbors()));
   }
 
+  public function testDeleteExistingRelation() {
+    $node1 = new Node('node1');
+    $node2 = new Node('node2');
+
+    $node1->connectTo($node2);
+    $node1->deleteRelation($node2->getName());
+
+    $this->assertEquals(0, count($node1->getNeighbors()));
+  }
+
   public function testCanGetHisName() {
     $node = new Node('node_name');
     $this->assertEquals('node_name', $node->getName());

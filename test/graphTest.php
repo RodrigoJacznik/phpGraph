@@ -2,7 +2,6 @@
 
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__.'/src/graph.php');
-require_once(__ROOT__.'/src/node.php');
 
 class GraphTest extends PHPUnit_Framework_TestCase {
   
@@ -29,6 +28,24 @@ class GraphTest extends PHPUnit_Framework_TestCase {
     $this->graph->add($node2);
 
     $this->assertEquals(1, count($this->graph->getNodes()));
+  }
+
+  public function testCanDeleteAExistingNode() {
+    $node1 = new Node('node1');
+    $node2 = new Node('node2');
+    $node3 = new Node('node3');
+
+    $this->graph->add($node1);
+    $this->graph->add($node2);
+    $this->graph->add($node3);
+    $this->graph->connectNodes($node1, $node2, $bidirectional=True);
+    $this->graph->connectNodes($node3, $node1);
+    $this->graph->connectNodes($node3, $node2);
+
+    $this->graph->deleteNode('node1');
+    $this->assertFalse($this->graph->areAdjacent($node1, $node2));
+    $this->assertFalse($this->graph->areAdjacent($node2, $node1));
+    $this->assertEquals(2, count($this->graph->getNodes()));
   }
 
   public function testCanSearchANodeByName() {
