@@ -1,0 +1,13 @@
+{
+    "name": "rodrigojacznik/php-graph",
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "authors": [
+        {
+            "name": "RodrigoJacznik",
+            "email": "jacznik.rodrigo@gmail.com"
+        }
+    ],
+    "require": {}
+}
