@@ -1,4 +1,4 @@
-<?php
+x<?php
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__.'/src/graph.php');
 require_once(__ROOT__.'/src/node.php');

@@ -1,9 +1,11 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__)));
+if (! defined('__ROOT__')) {
+    define('__ROOT__', dirname(dirname(__FILE__)));
+}
 require_once(__ROOT__.'/src/node.php');
 
-class NodoTest extends PHPUnit_Framework_TestCase {
+class NodeTest extends PHPUnit_Framework_TestCase {
 
   public function testCanCreateANode() {
     $this->assertInstanceOf('Node', new Node('node'));

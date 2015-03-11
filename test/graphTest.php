@@ -1,7 +1,11 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__)));
+if (! defined('__ROOT__')) {
+    define('__ROOT__', dirname(dirname(__FILE__)));
+}
+
 require_once(__ROOT__.'/src/graph.php');
+require_once(__ROOT__.'/src/node.php');
 
 class GraphTest extends PHPUnit_Framework_TestCase {
   
